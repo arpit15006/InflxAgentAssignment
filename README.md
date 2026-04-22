@@ -23,7 +23,7 @@ The system strictly classifies user input into three intents only:
 
 Add your screen recording link here before submitting:
 
-- Demo video: <REPLACE_WITH_LINK>
+- Demo video: (https://www.loom.com/share/37cf9eedfd044d1dadbdf0a2ec0ed3a2)
 
 ## Features (Must-Haves)
 
