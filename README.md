@@ -50,7 +50,7 @@ Add your screen recording link here before submitting:
    - Maintains short-term session memory per `session_id`
    - Trims conversation history to a 5–6 turn window
 
-## Architecture (≈200 words)
+## Architecture
 
 This project uses **LangGraph** because the agent’s behavior is best represented as a deterministic workflow rather than a single “chat completion.” LangGraph provides a clear graph of nodes and conditional routing, which makes the system easier to reason about, test, and extend (for example, adding more intents or inserting moderation/guard rails). The backend exposes a small FastAPI surface (`/chat`, `/health`), and each message is processed through a LangGraph state machine with dedicated nodes for intent detection, RAG answering, lead capture, and an “unknown” fallback.
 
