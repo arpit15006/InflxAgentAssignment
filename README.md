@@ -1,4 +1,4 @@
-# AutoStream (Inflx) — Social-to-Lead Agentic AI Workflow
+# AutoStream — Social-to-Lead Agentic AI Workflow
 
 This repository contains a production-style conversational AI agent that:
 
@@ -11,7 +11,7 @@ The system strictly classifies user input into three intents only:
 - `pricing`
 - `high_intent`
 
-Note: The assignment prompt names the fictional SaaS as **AutoStream** (automated video editing). The implementation/UI in this repo uses the name **Inflx**, but the underlying capabilities match the assignment requirements.
+
 
 ## Live Demo
 
@@ -131,7 +131,7 @@ npm run dev
 
 - `GROQ_API_KEY` (required)
 - `FRONTEND_ORIGINS` (optional): comma-separated allowlist for CORS, e.g.
-  `https://inflx-agent-assignment-cz64.vercel.app,http://localhost:5173`
+  `https://inflx-agent-assignment-cz64.vercel.app/,http://localhost:5173`
 
 ### Frontend
 

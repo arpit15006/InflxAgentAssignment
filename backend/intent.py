@@ -1,5 +1,5 @@
 """
-Inflx Intent Detection Module
+AutoStream Intent Detection Module
 Classifies user messages into exactly 3 categories:
   - greeting: Casual greetings and hellos
   - pricing: Product, pricing, feature, or policy inquiries
@@ -13,7 +13,7 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 
 load_dotenv()
-logger = logging.getLogger("inflx.intent")
+logger = logging.getLogger("autostream.intent")
 
 # Keyword fallback sets
 GREETING_KEYWORDS = {

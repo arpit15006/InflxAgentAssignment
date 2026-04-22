@@ -1,5 +1,5 @@
 """
-Inflx Lead Capture Tool
+AutoStream Lead Capture Tool
 Executes lead capture ONLY when ALL required fields are collected.
 
 STRICT GUARD: Tool must NOT be triggered until name, email, AND platform
@@ -9,7 +9,7 @@ are ALL present and validated.
 import re
 import logging
 
-logger = logging.getLogger("inflx.tools")
+logger = logging.getLogger("autostream.tools")
 
 
 def is_valid_name(text: str) -> bool:

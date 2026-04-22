@@ -1,5 +1,5 @@
 """
-Inflx RAG Module — FAISS-Based Knowledge Retrieval
+AutoStream RAG Module — FAISS-Based Knowledge Retrieval
 Uses sentence-transformers for embeddings + FAISS for vector similarity search.
 Retrieves relevant documents and generates grounded responses via LLM.
 """
@@ -16,7 +16,7 @@ from langchain_core.documents import Document
 from dotenv import load_dotenv
 
 load_dotenv()
-logger = logging.getLogger("inflx.rag")
+logger = logging.getLogger("autostream.rag")
 
 # Global FAISS store (initialized once at startup)
 _vector_store = None
@@ -116,7 +116,7 @@ def retrieve_and_respond(query: str, conversation_history: list = None) -> str:
         max_tokens=300,
     )
 
-    prompt = f"""You are Inflx AI, a helpful assistant for a content creator SaaS platform.
+    prompt = f"""You are AutoStream AI, a helpful assistant for a content creator SaaS platform.
 Answer the user's question using ONLY the information provided in the context below.
 Do NOT make up information. If the answer is not in the context, say you don't have that information.
 Be concise, friendly, and professional.

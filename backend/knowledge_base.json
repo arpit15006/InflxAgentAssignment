@@ -34,19 +34,19 @@
       "id": "platform_youtube",
       "category": "platform",
       "title": "YouTube Integration",
-      "content": "Inflx supports direct integration with YouTube. Content creators can connect their YouTube channel to automatically optimize video titles, descriptions, and thumbnails. The platform provides YouTube-specific analytics and growth recommendations."
+      "content": "AutoStream supports direct integration with YouTube. Content creators can connect their YouTube channel to automatically optimize video titles, descriptions, and thumbnails. The platform provides YouTube-specific analytics and growth recommendations."
     },
     {
       "id": "platform_instagram",
       "category": "platform",
       "title": "Instagram Integration",
-      "content": "Inflx supports Instagram integration for Reels and Stories. Content creators can schedule posts, optimize hashtags, and track engagement metrics. Instagram-specific AI recommendations help improve reach and follower growth."
+      "content": "AutoStream supports Instagram integration for Reels and Stories. Content creators can schedule posts, optimize hashtags, and track engagement metrics. Instagram-specific AI recommendations help improve reach and follower growth."
     },
     {
       "id": "platform_tiktok",
       "category": "platform",
       "title": "TikTok Integration",
-      "content": "Inflx supports TikTok integration for short-form video content. The platform helps optimize video posting times, trending audio selection, and content strategy. TikTok-specific analytics provide insights into video performance and audience demographics."
+      "content": "AutoStream supports TikTok integration for short-form video content. The platform helps optimize video posting times, trending audio selection, and content strategy. TikTok-specific analytics provide insights into video performance and audience demographics."
     },
     {
       "id": "feature_ai_captions",
@@ -58,7 +58,7 @@
       "id": "onboarding",
       "category": "general",
       "title": "Getting Started",
-      "content": "To get started with Inflx, sign up for a Basic or Pro plan. After signing up, connect your social media accounts (YouTube, Instagram, or TikTok). The onboarding wizard will guide you through setting up your first video project. You can upgrade from Basic to Pro at any time."
+      "content": "To get started with AutoStream, sign up for a Basic or Pro plan. After signing up, connect your social media accounts (YouTube, Instagram, or TikTok). The onboarding wizard will guide you through setting up your first video project. You can upgrade from Basic to Pro at any time."
     }
   ]
 }

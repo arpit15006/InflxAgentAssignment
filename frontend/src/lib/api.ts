@@ -19,7 +19,7 @@ interface ChatApiResponse {
 }
 
 /**
- * Send a message to the Inflx AI agent backend.
+ * Send a message to the AutoStream AI agent backend.
  *
  * @param message - User's message text
  * @param sessionId - Session ID for multi-turn tracking

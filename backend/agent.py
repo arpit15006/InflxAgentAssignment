@@ -1,5 +1,5 @@
 """
-Inflx LangGraph Agent — Stateful Conversational Workflow
+AutoStream LangGraph Agent — Stateful Conversational Workflow
 Implements a state machine with 4 nodes and conditional routing.
 
 Nodes:
@@ -33,7 +33,7 @@ from tools import (
 )
 
 load_dotenv()
-logger = logging.getLogger("inflx.agent")
+logger = logging.getLogger("autostream.agent")
 
 # ============================================================
 # Session Store — Dictionary-based memory for 5-6 turn retention
@@ -81,9 +81,9 @@ def intent_detection_node(state: AgentState) -> dict:
 def greeting_node(state: AgentState) -> dict:
     """Handle greeting messages with a friendly response."""
     responses = [
-        "Hey there! Welcome to Inflx! I'm your AI assistant. I can help you with our pricing plans, features, or get you started with our platform. What would you like to know?",
-        "Hello! Great to have you here at Inflx! I can help you explore our content creation plans, answer your questions, or help you get started. How can I assist you today?",
-        "Hi! Welcome to Inflx - your AI-powered content creation platform! Feel free to ask me about our plans, features, or anything else. What's on your mind?",
+        "Hey there! Welcome to AutoStream! I'm your AI assistant. I can help you with our pricing plans, features, or get you started with our platform. What would you like to know?",
+        "Hello! Great to have you here at AutoStream! I can help you explore our content creation plans, answer your questions, or help you get started. How can I assist you today?",
+        "Hi! Welcome to AutoStream - your AI-powered content creation platform! Feel free to ask me about our plans, features, or anything else. What's on your mind?",
     ]
     import random
     response = random.choice(responses)
@@ -307,7 +307,7 @@ def lead_flow_node(state: AgentState) -> dict:
                     f"- **Email:** {email}\n"
                     f"- **Platform:** {platform}\n"
                     f"- **Plan:** {plan}\n\n"
-                    f"Our team will reach out to you shortly to help you get started with Inflx. "
+                    f"Our team will reach out to you shortly to help you get started with AutoStream. "
                     f"Welcome aboard!"
                 ),
             }
@@ -370,13 +370,13 @@ def lead_flow_node(state: AgentState) -> dict:
                 f"- **Email:** {email}\n"
                 f"- **Platform:** {platform}\n"
                 f"- **Plan:** {plan}\n\n"
-                f"Our team will reach out to you shortly to help you get started with Inflx. "
+                f"Our team will reach out to you shortly to help you get started with AutoStream. "
                 f"Welcome aboard!"
             ),
         }
 
     # Fallback
-    return {"response": "I'm here to help! What would you like to know about Inflx?", "stage": "idle"}
+    return {"response": "I'm here to help! What would you like to know about AutoStream?", "stage": "idle"}
 
 
 # ============================================================

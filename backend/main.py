@@ -1,5 +1,5 @@
 """
-Inflx API Server — FastAPI Backend
+AutoStream API Server — FastAPI Backend
 Serves the conversational AI agent via REST API.
 
 Endpoints:
@@ -27,7 +27,7 @@ logging.basicConfig(
     format="%(asctime)s | %(name)-15s | %(levelname)-7s | %(message)s",
     datefmt="%H:%M:%S",
 )
-logger = logging.getLogger("inflx.api")
+logger = logging.getLogger("autostream.api")
 
 
 # ============================================================
@@ -37,7 +37,7 @@ logger = logging.getLogger("inflx.api")
 async def lifespan(app: FastAPI):
     """Initialize FAISS vector store on server startup."""
     logger.info("=" * 60)
-    logger.info("  Inflx Agent Server Starting...")
+    logger.info("  AutoStream Agent Server Starting...")
     logger.info("=" * 60)
     initialize_rag()
     logger.info("FAISS RAG pipeline ready")
@@ -51,7 +51,7 @@ async def lifespan(app: FastAPI):
 # FastAPI App
 # ============================================================
 app = FastAPI(
-    title="Inflx – Social-to-Lead AI Agent",
+    title="AutoStream – Social-to-Lead AI Agent",
     description="Agentic AI workflow for converting conversations into qualified leads",
     version="1.0.0",
     lifespan=lifespan,
@@ -104,7 +104,7 @@ class ChatResponse(BaseModel):
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     """
-    Process a user message through the Inflx AI agent.
+    Process a user message through the AutoStream AI agent.
     
     The agent will:
     1. Detect intent (greeting | pricing | high_intent)
@@ -134,4 +134,4 @@ async def chat(request: ChatRequest):
 @app.get("/health")
 async def health_check():
     """Health check endpoint."""
-    return {"status": "healthy", "service": "inflx-agent"}
+    return {"status": "healthy", "service": "autostream-agent"}

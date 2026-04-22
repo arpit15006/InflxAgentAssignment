@@ -11,10 +11,10 @@ export default function ChatHeader({ isDark, onToggleTheme }: ChatHeaderProps) {
     <div className="flex items-center justify-between px-5 py-4 border-b">
       <div className="flex items-center gap-3">
         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
-          Ix
+          AS
         </div>
         <div>
-          <h1 className="text-base font-semibold tracking-tight">Inflx</h1>
+          <h1 className="text-base font-semibold tracking-tight">AutoStream</h1>
           <p className="text-xs text-muted-foreground">
             Social-to-Lead AI Agent
           </p>

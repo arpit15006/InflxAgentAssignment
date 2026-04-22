@@ -1,5 +1,5 @@
 """
-Inflx Agent State Schema
+AutoStream Agent State Schema
 Defines the conversation state maintained across turns.
 Session-based memory retains context for 5-6 turns using LangGraph state.
 """

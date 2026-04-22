@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================================================
-# Inflx Agent - Start Both Servers
+# AutoStream Agent - Start Both Servers
 # Starts backend (FastAPI) and frontend (React/Vite) servers
 # ============================================================
 
@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 echo -e "${BLUE}================================================${NC}"
-echo -e "${BLUE}  Inflx Agent - Starting Development Servers${NC}"
+echo -e "${BLUE}  AutoStream Agent - Starting Development Servers${NC}"
 echo -e "${BLUE}================================================${NC}"
 echo ""
 

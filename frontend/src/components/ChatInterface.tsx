@@ -23,7 +23,7 @@ export default function ChatInterface() {
       {
         id: crypto.randomUUID(),
         role: "assistant",
-        content: "Hi there! Welcome to Inflx. I'm your AI assistant. I can help you with our pricing plans, features, or anything else you'd like to know.",
+        content: "Hi there! Welcome to AutoStream. I'm your AI assistant. I can help you with our pricing plans, features, or anything else you'd like to know.",
         timestamp: new Date(),
       },
     ]);
