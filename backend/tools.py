@@ -121,10 +121,10 @@ def mock_lead_capture(name: str, email: str, platform: str, plan: str) -> str:
     return f"Lead captured successfully for {name} ({email}) on {platform} with {plan} plan!"
 
 
-def extract_plan_from_context(message: str, conversation_history: list) -> str:
+def extract_details_from_context(message: str, conversation_history: list) -> dict:
     """
-    Use LLM to extract the intended plan from the conversation history.
-    This helps resolve "this", "that", "the 720p one", etc.
+    Use LLM to extract intended plan and platform from conversation history.
+    Helps resolve ambiguous references like "the 720p one" and captures initial mentions.
     """
     from langchain_groq import ChatGroq
     import json
@@ -132,7 +132,7 @@ def extract_plan_from_context(message: str, conversation_history: list) -> str:
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
         temperature=0,
-        max_tokens=100,
+        max_tokens=150,
     )
 
     history_context = ""
@@ -142,24 +142,33 @@ def extract_plan_from_context(message: str, conversation_history: list) -> str:
             [f"{'User' if m['role'] == 'user' else 'Agent'}: {m['content']}" for m in recent]
         )
 
-    prompt = f"""Analyze the conversation and determine which subscription plan the user wants.
+    prompt = f"""Analyze the conversation and extract the user's intended subscription plan and content platform.
+
 Available plans: "Basic" (720p, $29) or "Pro" (4K, AI captions, $79).
+Supported platforms: "YouTube", "Instagram", "TikTok".
 
 Context:
 {history_context}
 
 User message: "{message}"
 
-If the user specifies a plan (e.g. "Basic", "Pro") or refers to one (e.g. "this", "the 720p one", "the first one"), extract it.
-Output ONLY valid JSON: {{"plan": "Basic" | "Pro" | ""}}"""
+Extract the details if they are mentioned or implied.
+Output ONLY valid JSON.
+Schema: {{"plan": "Basic" | "Pro" | "", "platform": "YouTube" | "Instagram" | "TikTok" | ""}}"""
 
     try:
         response = llm.invoke(prompt)
         content = response.content.strip().replace("```json", "").replace("```", "").strip()
         data = json.loads(content)
+        
         plan = data.get("plan", "")
-        if plan in ["Basic", "Pro"]:
-            return plan
-        return ""
+        if plan not in ["Basic", "Pro"]:
+            plan = ""
+            
+        platform = data.get("platform", "")
+        if platform not in ["YouTube", "Instagram", "TikTok"]:
+            platform = ""
+            
+        return {"plan": plan, "platform": platform}
     except Exception:
-        return ""
+        return {"plan": "", "platform": ""}

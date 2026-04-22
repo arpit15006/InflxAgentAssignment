@@ -29,7 +29,7 @@ from tools import (
     is_valid_plan,
     looks_like_intent,
     looks_like_question,
-    extract_plan_from_context,
+    extract_details_from_context,
 )
 
 load_dotenv()
@@ -148,8 +148,10 @@ def lead_flow_node(state: AgentState) -> dict:
     if stage in ("idle", "complete", ""):
         logger.info("[Stage: idle → ask_name]")
         
-        # Try to extract plan from history using LLM
-        plan = extract_plan_from_context(user_message, state["messages"])
+        # Try to extract plan and platform from history using LLM
+        extracted = extract_details_from_context(user_message, state["messages"])
+        plan = extracted.get("plan", "")
+        platform = extracted.get("platform", "")
         
         if not plan:
             # Fallback to keyword matching in current message
@@ -158,6 +160,16 @@ def lead_flow_node(state: AgentState) -> dict:
                 plan = "Pro"
             elif "basic" in user_message_lower or "720p" in user_message_lower:
                 plan = "Basic"
+
+        if not platform:
+            # Fallback to keyword matching
+            user_message_lower = user_message.lower()
+            if "youtube" in user_message_lower:
+                platform = "YouTube"
+            elif "instagram" in user_message_lower:
+                platform = "Instagram"
+            elif "tiktok" in user_message_lower:
+                platform = "TikTok"
         
         response_msg = "That's great to hear! I'd love to help you get started. Could you please share your **name**?"
         if plan:
@@ -166,6 +178,7 @@ def lead_flow_node(state: AgentState) -> dict:
         return {
             "stage": "ask_name",
             "plan": plan,
+            "platform": platform,
             "response": response_msg,
         }
 
@@ -236,6 +249,41 @@ def lead_flow_node(state: AgentState) -> dict:
                 "response": "That doesn't look like a valid email address. Could you please provide a valid email? (e.g., name@example.com)",
             }
         
+        # Check if platform was already captured earlier
+        platform = state.get("platform", "")
+        if platform:
+            logger.info(f"[Stage: ask_email → ask_plan] Email captured: {email}, Platform already known: {platform}")
+            # If platform is known, we might still need the plan, or we might be ready to execute
+            # But the existing logic handles plan asking in ask_platform node if plan is missing.
+            # To stay consistent, let's jump to the logic that handles platform completion.
+            
+            # If plan is ALSO already captured, we can go to complete
+            plan = state.get("plan", "")
+            if plan:
+                name = state.get("name", "")
+                result = mock_lead_capture(name, email, platform, plan)
+                return {
+                    "stage": "complete",
+                    "email": email,
+                    "response": (
+                        f"**Awesome, {name}!** Your lead has been captured successfully!\n\n"
+                        f"Here's a summary:\n"
+                        f"- **Name:** {name}\n"
+                        f"- **Email:** {email}\n"
+                        f"- **Platform:** {platform}\n"
+                        f"- **Plan:** {plan}\n\n"
+                        f"Our team will reach out to you shortly to help you get started with AutoStream. "
+                        f"Welcome aboard!"
+                    ),
+                }
+            else:
+                # Plan missing, ask for it
+                return {
+                    "stage": "ask_plan",
+                    "email": email,
+                    "response": f"Perfect! And which **plan** are you interested in? We offer **Basic** ($29/month) and **Pro** ($79/month).",
+                }
+
         logger.info(f"[Stage: ask_email → ask_platform] Email captured: {email}")
         return {
             "stage": "ask_platform",
