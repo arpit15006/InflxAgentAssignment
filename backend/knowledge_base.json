@@ -1,0 +1,64 @@
+{
+  "documents": [
+    {
+      "id": "pricing_basic",
+      "category": "pricing",
+      "title": "Basic Plan",
+      "content": "The Basic plan costs $29 per month. It includes up to 10 videos per month with 720p video quality. This plan is ideal for beginners and small content creators who are just getting started. It includes standard support via email during business hours."
+    },
+    {
+      "id": "pricing_pro",
+      "category": "pricing",
+      "title": "Pro Plan",
+      "content": "The Pro plan costs $79 per month. It includes unlimited videos with 4K video quality and AI-powered captions. This plan is designed for professional content creators who need premium features. It includes 24/7 priority support, advanced analytics, and custom branding options."
+    },
+    {
+      "id": "pricing_comparison",
+      "category": "pricing",
+      "title": "Plan Comparison",
+      "content": "We offer two plans: Basic at $29/month (10 videos, 720p) and Pro at $79/month (unlimited videos, 4K, AI captions). The Pro plan includes all Basic features plus unlimited videos, 4K quality, AI-powered captions, 24/7 support, advanced analytics, and custom branding. The Basic plan includes email support during business hours only."
+    },
+    {
+      "id": "policy_refund",
+      "category": "policy",
+      "title": "Refund Policy",
+      "content": "Our refund policy allows full refunds within the first 7 days of subscription. No refunds are provided after 7 days. If you cancel within the first week, you will receive a complete refund. After 7 days, your subscription remains active until the end of the billing period but no refund is issued."
+    },
+    {
+      "id": "policy_support",
+      "category": "policy",
+      "title": "Support Policy",
+      "content": "24/7 support is available exclusively for Pro plan subscribers. Basic plan users receive email support during business hours (Monday to Friday, 9 AM to 6 PM). Pro plan users get access to live chat, phone support, and priority ticket resolution around the clock."
+    },
+    {
+      "id": "platform_youtube",
+      "category": "platform",
+      "title": "YouTube Integration",
+      "content": "Inflx supports direct integration with YouTube. Content creators can connect their YouTube channel to automatically optimize video titles, descriptions, and thumbnails. The platform provides YouTube-specific analytics and growth recommendations."
+    },
+    {
+      "id": "platform_instagram",
+      "category": "platform",
+      "title": "Instagram Integration",
+      "content": "Inflx supports Instagram integration for Reels and Stories. Content creators can schedule posts, optimize hashtags, and track engagement metrics. Instagram-specific AI recommendations help improve reach and follower growth."
+    },
+    {
+      "id": "platform_tiktok",
+      "category": "platform",
+      "title": "TikTok Integration",
+      "content": "Inflx supports TikTok integration for short-form video content. The platform helps optimize video posting times, trending audio selection, and content strategy. TikTok-specific analytics provide insights into video performance and audience demographics."
+    },
+    {
+      "id": "feature_ai_captions",
+      "category": "feature",
+      "title": "AI Captions",
+      "content": "AI-powered captions are available exclusively with the Pro plan at $79/month. The AI caption feature automatically generates accurate subtitles in multiple languages, making your content accessible to a global audience. Captions can be customized in style, font, and position."
+    },
+    {
+      "id": "onboarding",
+      "category": "general",
+      "title": "Getting Started",
+      "content": "To get started with Inflx, sign up for a Basic or Pro plan. After signing up, connect your social media accounts (YouTube, Instagram, or TikTok). The onboarding wizard will guide you through setting up your first video project. You can upgrade from Basic to Pro at any time."
+    }
+  ]
+}
